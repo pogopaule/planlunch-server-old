@@ -5,12 +5,12 @@
     "node": "0.10.x"
   },
   "dependencies": {
-    "hapi": "~6.4.0"
+    "hapi": "~6.4.0",
+    "joi": "~4.6.2",
+    "underscore": "~1.6.0"
   },
   "devDependencies": {
-    "joi": "~4.6.2",
-    "lab": "~4.0.1",
-    "underscore": "~1.6.0"
+    "lab": "~4.0.1"
   },
   "main": "index.js",
   "scripts": {
