@@ -2,7 +2,7 @@ var Hapi = require('hapi'),
     _ = require('underscore'),
     Joi = require('joi');
 
-var server = new Hapi.Server(8080, {cors: true});
+var server = new Hapi.Server(80, {cors: true});
 
 server.route({
   method: 'GET',
