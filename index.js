@@ -5,7 +5,7 @@ var Hapi = require('hapi'),
 
 
 
-new CronJob('0 0 14 * * *', function(){
+new CronJob('0 0 14 * * 1-5', function(){
   initPlaces();
 }, null, true, 'Europe/Berlin');
 
