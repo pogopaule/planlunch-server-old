@@ -123,7 +123,7 @@ function initPlaces() {
     { name: 'la Centrale', geo: [47.9937667, 7.8336526], website: 'http://www.centrale-ewerk.de/index.php/bistro' },
     { name: 'Corosol', geo: [47.9947838, 7.8346218], website: 'https://de-de.facebook.com/cafecorosol' },
     { name: 'Pizzaria Ochsebrugg', geo: [47.9979355, 7.8402287], website: 'http://www.pizzeria-ochsebrugg.de/speisekate.html' },
-    { name: 'Café Pow', geo: [], website: 'https://www.facebook.com/cafepow' }
+    { name: 'Café Pow', geo: [47.9941271, 7.8398273], website: 'https://www.facebook.com/cafepow' }
   ];
 }
 
