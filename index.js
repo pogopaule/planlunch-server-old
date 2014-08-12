@@ -26,6 +26,25 @@ server.route({
 
 server.route({
   method: 'POST',
+  path: '/places',
+  config: {
+    validate: {
+      payload: Joi.object().keys({
+        attendee: Joi.string().required(),
+        action: Joi.string().required()
+      })
+    }
+  },
+  handler: function(request, reply) {
+    if(request.payload.action === 'withdraw') {
+      removeAttendeeFromPlaces(request.payload.attendee);
+    }
+    reply();
+  }
+});
+
+server.route({
+  method: 'POST',
   path: '/places/{name}',
   config: {
     validate: {

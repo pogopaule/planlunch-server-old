@@ -72,16 +72,48 @@ lab.experiment('Places endpoint', function() {
     });
   });
 
-  lab.test('rejects POST requests with invalid payload format', function(done) {
+  lab.test('rejects POST requests to a place with invalid payload format', function(done) {
     var nonStringAttendee = {
       method: 'POST',
       url: '/places/Café%20Einstein',
       payload: {attendee: {a: 'foo'}}
     }
+
     server.inject(nonStringAttendee, function(response) {
       Lab.expect(response.statusCode).to.equal(400);
 
       done()
     });
-  })
+  });
+
+  lab.test('allows attendee to withdraw', function(done) {
+    var options = {
+      method: 'POST',
+      url: '/places',
+      payload: {attendee: 'Max', action: 'withdraw'}
+    }
+
+    places[7].attendees = ['Max'];
+
+    server.inject(options, function(response) {
+      Lab.expect(places[7].attendees).to.not.contain('Max');
+
+      done();
+    });
+  });
+
+  lab.test('rejects POST requests to places with invalid payload format', function(done) {
+    var nonStringAttendee = {
+      method: 'POST',
+      url: '/places',
+      payload: {attendee: 'Max'}
+    }
+
+    server.inject(nonStringAttendee, function(response) {
+      Lab.expect(response.statusCode).to.equal(400);
+
+      done();
+    });
+  });
+
 });
