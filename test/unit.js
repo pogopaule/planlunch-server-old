@@ -19,7 +19,7 @@ lab.experiment('Places endpoint', function() {
     var placeSchema = Joi.object().keys({
       name: Joi.string().required(),
       geo: Joi.array().includes(Joi.number().min(0).max(180)).length(2).required(),
-      attendees: Joi.array().includes(Joi.string()),
+      users: Joi.array().includes(Joi.string()),
       website: Joi.string()
     }),
     resultSchema = Joi.array().includes(placeSchema).min(1);
@@ -34,39 +34,39 @@ lab.experiment('Places endpoint', function() {
     });
   });
 
-  lab.test('can add attendee to place', function(done) {
+  lab.test('can add user to place', function(done) {
     var options = {
       method: 'POST',
       url: '/places/Café%20Einstein',
-      payload: {attendee: 'Max'}
+      payload: {user: 'Max'}
     }
 
     server.inject(options, function(response) {
       Lab.expect(response.statusCode).to.equal(200);
-      Lab.expect(places[1].attendees).to.contain('Max');
+      Lab.expect(places[1].users).to.contain('Max');
 
       done();
     });
   });
 
-  lab.test('allows attendee to change place', function(done) {
+  lab.test('allows user to change place', function(done) {
     var options = {
       method: 'POST',
       url: '/places/Café%20Einstein',
-      payload: {attendee: 'Max'}
+      payload: {user: 'Max'}
     }
 
-    places[2].attendees = ['Max'];
+    places[2].users = ['Max'];
 
     server.inject(options, function(response) {
       var placesAttendedByMax = _.filter(places, function(place) {
-        if(place.attendees) {
-          return _.contains(place.attendees, 'Max');
+        if(place.users) {
+          return _.contains(place.users, 'Max');
         }
         return false;
       });
       Lab.expect(response.statusCode).to.equal(200);
-      Lab.expect(places[1].attendees).to.contain('Max');
+      Lab.expect(places[1].users).to.contain('Max');
       Lab.expect(placesAttendedByMax).length.to.be(1);
 
       done();
@@ -74,43 +74,43 @@ lab.experiment('Places endpoint', function() {
   });
 
   lab.test('rejects POST requests to a place with invalid payload format', function(done) {
-    var nonStringAttendee = {
+    var nonStringUser = {
       method: 'POST',
       url: '/places/Café%20Einstein',
-      payload: {attendee: {a: 'foo'}}
+      payload: {user: {a: 'foo'}}
     }
 
-    server.inject(nonStringAttendee, function(response) {
+    server.inject(nonStringUser, function(response) {
       Lab.expect(response.statusCode).to.equal(400);
 
       done()
     });
   });
 
-  lab.test('allows attendee to withdraw', function(done) {
+  lab.test('allows user to withdraw', function(done) {
     var options = {
       method: 'POST',
       url: '/places',
-      payload: {attendee: 'Max', action: 'withdraw'}
+      payload: {user: 'Max', action: 'withdraw'}
     }
 
-    places[7].attendees = ['Max'];
+    places[7].users = ['Max'];
 
     server.inject(options, function(response) {
-      Lab.expect(places[7].attendees).to.not.contain('Max');
+      Lab.expect(places[7].users).to.not.contain('Max');
 
       done();
     });
   });
 
   lab.test('rejects POST requests to places with invalid payload format', function(done) {
-    var nonStringAttendee = {
+    var nonStringUser = {
       method: 'POST',
       url: '/places',
-      payload: {attendee: 'Max'}
+      payload: {user: 'Max'}
     }
 
-    server.inject(nonStringAttendee, function(response) {
+    server.inject(nonStringUser, function(response) {
       Lab.expect(response.statusCode).to.equal(400);
 
       done();

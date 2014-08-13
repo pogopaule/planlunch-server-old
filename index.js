@@ -30,14 +30,14 @@ server.route({
   config: {
     validate: {
       payload: Joi.object().keys({
-        attendee: Joi.string().required(),
+        user: Joi.string().required(),
         action: Joi.string().required()
       })
     }
   },
   handler: function(request, reply) {
     if(request.payload.action === 'withdraw') {
-      removeAttendeeFromPlaces(request.payload.attendee);
+      removeUserFromPlaces(request.payload.user);
     }
     reply();
   }
@@ -49,14 +49,14 @@ server.route({
   config: {
     validate: {
       payload: Joi.object().keys({
-        attendee: Joi.string().required()
+        user: Joi.string().required()
       })
     }
   },
   handler: function(request, reply) {
-    var attendee = request.payload.attendee;
-    removeAttendeeFromPlaces(attendee);
-    addAttendeeToPlace(attendee, request.params.name);
+    var user = request.payload.user;
+    removeUserFromPlaces(user);
+    addUserToPlace(user, request.params.name);
 
     reply();
   }
@@ -79,24 +79,24 @@ function isTest() {
   return module.parent;
 }
 
-function removeAttendeeFromPlaces(attendee) {
-  var placeAttendedByAttendee = _.each(server.places, function(place) {
-    if(place.attendees) {
-      place.attendees = _.without(place.attendees, attendee);
+function removeUserFromPlaces(user) {
+  var placeAttendedByUser = _.each(server.places, function(place) {
+    if(place.users) {
+      place.users = _.without(place.users, user);
     }
   });
 }
 
-function addAttendeeToPlace(attendee, placeName) {
+function addUserToPlace(user, placeName) {
   var place = _.find(server.places, function(place) {
     return place.name === placeName
   });
 
-  if(!place.attendees) {
-    place.attendees = [];
+  if(!place.users) {
+    place.users = [];
   }
 
-  place.attendees.push(attendee);
+  place.users.push(user);
 }
 
 function initPlaces() {
