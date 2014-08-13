@@ -19,7 +19,8 @@ lab.experiment('Places endpoint', function() {
     var placeSchema = Joi.object().keys({
       name: Joi.string().required(),
       geo: Joi.array().includes(Joi.number().min(0).max(180)).length(2).required(),
-      attendees: Joi.array().includes(Joi.string())
+      attendees: Joi.array().includes(Joi.string()),
+      website: Joi.string()
     }),
     resultSchema = Joi.array().includes(placeSchema).min(1);
 
