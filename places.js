@@ -22,5 +22,7 @@ module.exports = [
   { name: 'Corosol', geo: [47.9947838, 7.8346218], website: 'https://de-de.facebook.com/cafecorosol' },
   { name: 'Pizzaria Ochsebrugg', geo: [47.9979355, 7.8402287], website: 'http://www.pizzeria-ochsebrugg.de/speisekate.html' },
   { name: 'Café Pow', geo: [47.9941271, 7.8398273], website: 'https://www.facebook.com/cafepow' },
-  { name: 'Kölner Botschaft', geo: [47.9956715, 7.8386571], website: 'http://www.koelnerbotschaft.de/kulinarisch.html' }
+  { name: 'Kölner Botschaft', geo: [47.9956715, 7.8386571], website: 'http://www.koelnerbotschaft.de/kulinarisch.html' },
+  { name: 'der freiBurger', geo: [47.9977041, 7.8503184], website: 'http://www.derfreiburger.de/essenundtrinken.html'},
+  {name: 'Burger Charlet', geo: [47.99473, 7.84799], website: 'https://www.facebook.com/pages/Burger-Chalet/235179289994518'}
 ];
