@@ -4,9 +4,8 @@ var Hapi = require('hapi'),
     CronJob = require('cron').CronJob;
 
 
-
 new CronJob('0 0 14 * * 1-5', function(){
-  initPlaces();
+  server.initPlaces();
 }, null, true, 'Europe/Berlin');
 
 
@@ -15,6 +14,13 @@ new CronJob('0 0 14 * * 1-5', function(){
 
 var port = process.env.PORT || 8080;
 var server = new Hapi.Server(port, {cors: true});
+
+server.places = require('./places.js');
+server.initPlaces = function() {
+  _.each(server.places, function(place) {
+    delete place.users;
+  });
+}
 
 server.route({
   method: 'GET',
@@ -62,8 +68,6 @@ server.route({
   }
 });
 
-initPlaces();
-
 if(!isTest()) {
   server.start(function() {
     console.log('server started', server.info.uri);
@@ -99,8 +103,5 @@ function addUserToPlace(user, placeName) {
   place.users.push(user);
 }
 
-function initPlaces() {
-  server.places = require('./places.js');
-}
 
 module.exports = server;

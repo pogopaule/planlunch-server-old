@@ -6,7 +6,16 @@ var Lab = require('lab'),
     places = server.places;
 
 
+lab.experiment('Cron job', function() {
+  lab.test('initPlaces should remove all users', function(done) {
+    server.places[0].users = ['Max'];
 
+    server.initPlaces();
+
+    Lab.expect(server.places[0].hasOwnProperty('users')).to.equal(false)
+    done();
+  });
+});
 
 lab.experiment('Places endpoint', function() {
 
