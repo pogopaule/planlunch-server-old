@@ -55,14 +55,16 @@ server.route({
   config: {
     validate: {
       payload: Joi.object().keys({
-        user: Joi.string().required()
+        user: Joi.string().required(),
+        time_slot: Joi.valid('11:30', '11:45', '12:00', '12:15', '12:30', '12:45', '13:00')
       })
     }
   },
   handler: function(request, reply) {
     var user = request.payload.user;
+    var timeSlot = request.payload.time_slot;
     removeUserFromPlaces(user);
-    addUserToPlace(user, request.params.name);
+    addUserToPlace(user, timeSlot, request.params.name);
 
     reply();
   }
@@ -84,23 +86,28 @@ function isTest() {
 }
 
 function removeUserFromPlaces(user) {
-  var placeAttendedByUser = _.each(server.places, function(place) {
-    if(place.users) {
-      place.users = _.without(place.users, user);
+  _.each(server.places, function(place) {
+    if(place.hasOwnProperty('time_slots')) {
+      for(var timeSlot in place.time_slots){
+        place.time_slots[timeSlot] = _.without(place.time_slots[timeSlot], user);
+      }
     }
   });
 }
 
-function addUserToPlace(user, placeName) {
+function addUserToPlace(user, timeSlot, placeName) {
   var place = _.find(server.places, function(place) {
     return place.name === placeName
   });
 
-  if(!place.users) {
-    place.users = [];
+  if(!place.time_slots) {
+    place.time_slots = {};
+  }
+  if(!place.time_slots.hasOwnProperty(timeSlot)) {
+    place.time_slots[timeSlot] = [];
   }
 
-  place.users.push(user);
+  place.time_slots[timeSlot].push(user);
 }
 
 
