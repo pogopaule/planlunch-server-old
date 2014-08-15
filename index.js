@@ -3,6 +3,11 @@ var Hapi = require('hapi'),
     Joi = require('joi'),
     CronJob = require('cron').CronJob;
 
+Object.prototype.findTimeSlot = function(time) {
+  return _.find(this.time_slots, function(timeSlot) {
+     return timeSlot.time === time;
+  });
+}
 
 new CronJob('0 0 14 * * 1-5', function(){
   server.initPlaces();
@@ -18,7 +23,7 @@ var server = new Hapi.Server(port, {cors: true});
 server.places = require('./places.js');
 server.initPlaces = function() {
   _.each(server.places, function(place) {
-    delete place.users;
+    delete place.time_slots;
   });
 }
 
@@ -56,7 +61,7 @@ server.route({
     validate: {
       payload: Joi.object().keys({
         user: Joi.string().required(),
-        time_slot: Joi.valid('11:30', '11:45', '12:00', '12:15', '12:30', '12:45', '13:00')
+        time_slot: Joi.valid('11:30', '11:45', '12:00', '12:15', '12:30', '12:45', '13:00').required()
       })
     }
   },
@@ -88,26 +93,30 @@ function isTest() {
 function removeUserFromPlaces(user) {
   _.each(server.places, function(place) {
     if(place.hasOwnProperty('time_slots')) {
-      for(var timeSlot in place.time_slots){
-        place.time_slots[timeSlot] = _.without(place.time_slots[timeSlot], user);
-      }
+      _.each(place.time_slots, function(timeSlot, index, timeSlots) {
+        timeSlot.users = _.without(timeSlot.users, user);
+        if(timeSlot.users.length == 0) {
+          timeSlots.splice(index, 1);
+        }
+      });
     }
   });
 }
 
-function addUserToPlace(user, timeSlot, placeName) {
+function addUserToPlace(user, time, placeName) {
   var place = _.find(server.places, function(place) {
     return place.name === placeName
   });
 
   if(!place.time_slots) {
-    place.time_slots = {};
-  }
-  if(!place.time_slots.hasOwnProperty(timeSlot)) {
-    place.time_slots[timeSlot] = [];
+    place.time_slots = [];
   }
 
-  place.time_slots[timeSlot].push(user);
+  if(!place.findTimeSlot(time)) {
+    place.time_slots.push({time: time, users: []});
+  }
+
+  place.findTimeSlot(time).users.push(user);
 }
 
 
