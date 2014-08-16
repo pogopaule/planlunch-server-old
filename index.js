@@ -116,6 +116,10 @@ function addUserToPlace(user, time, placeName) {
     place.time_slots.push({time: time, users: []});
   }
 
+  place.time_slots = _.sortBy(place.time_slots, function(timeSlot) {
+    return timeSlot.time;
+  })
+
   place.findTimeSlot(time).users.push(user);
 }
 
