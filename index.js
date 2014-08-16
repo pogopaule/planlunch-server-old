@@ -17,8 +17,8 @@ new CronJob('0 0 14 * * 1-5', function(){
 
 
 
-var port = process.env.PORT || 8080;
-var server = new Hapi.Server(port, {cors: true});
+var port = process.env.PORT || 8080,
+    server = new Hapi.Server(port, {cors: true});
 
 server.places = require('./places.js');
 server.initPlaces = function() {
@@ -26,6 +26,9 @@ server.initPlaces = function() {
     delete place.time_slots;
   });
 }
+
+var bannedUserNames = ['sex', 'tits', 'ass', 'porn', 'fuck', 'poo', 'pee', 'dong', 'fick'],
+    userSchema = Joi.string().regex(/^[a-z]{3,4}$/).invalid(bannedUserNames).required();
 
 server.route({
   method: 'GET',
@@ -41,7 +44,7 @@ server.route({
   config: {
     validate: {
       payload: Joi.object().keys({
-        user: Joi.string().required(),
+        user: userSchema,
         action: Joi.string().required()
       })
     }
@@ -60,7 +63,7 @@ server.route({
   config: {
     validate: {
       payload: Joi.object().keys({
-        user: Joi.string().required(),
+        user: userSchema,
         time_slot: Joi.valid('11:30', '11:45', '12:00', '12:15', '12:30', '12:45', '13:00').required()
       })
     }
