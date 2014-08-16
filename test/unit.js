@@ -57,7 +57,7 @@ lab.experiment('Places endpoint', function() {
       method: 'POST',
       url: '/places/Café%20Einstein',
       payload: {user: 'Max', time_slot: '12:15'}
-    }
+    };
 
     server.inject(options, function(response) {
       Lab.expect(response.statusCode).to.equal(200);
@@ -72,7 +72,7 @@ lab.experiment('Places endpoint', function() {
       method: 'POST',
       url: '/places/Café%20Einstein',
       payload: {user: 'Max', time_slot: '12:45'}
-    }
+    };
 
     places[2].time_slots = [{ time: '12:00', users: ['Max']}];
 
@@ -100,7 +100,7 @@ lab.experiment('Places endpoint', function() {
       method: 'POST',
       url: '/places/Café%20Einstein',
       payload: {user: {a: 'foo'}}
-    }
+    };
 
     server.inject(nonStringUser, function(response) {
       Lab.expect(response.statusCode).to.equal(400);
@@ -114,7 +114,7 @@ lab.experiment('Places endpoint', function() {
       method: 'POST',
       url: '/places',
       payload: {user: 'Max', action: 'withdraw'}
-    }
+    };
 
     places[7].time_slots = [{time: '11:45', users: ['Max']}];
 
@@ -126,17 +126,16 @@ lab.experiment('Places endpoint', function() {
   });
 
   lab.test('rejects POST requests to places with invalid payload format', function(done) {
-    var nonStringUser = {
+    var invalidPayload = {
       method: 'POST',
       url: '/places',
       payload: {user: 'Max'}
-    }
+    };
 
-    server.inject(nonStringUser, function(response) {
+    server.inject(invalidPayload, function(response) {
       Lab.expect(response.statusCode).to.equal(400);
 
       done();
     });
   });
-
 });
