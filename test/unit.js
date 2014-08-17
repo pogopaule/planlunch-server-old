@@ -28,7 +28,8 @@ lab.experiment('Places endpoint', function() {
       name: Joi.string().required(),
       geo: Joi.array().includes(Joi.number().min(0).max(180)).length(2).required(),
       time_slots: Joi.array().includes(timeSlotSchema),
-      website: Joi.string()
+      website: Joi.string(),
+      tags: Joi.array().includes(Joi.string())
     }),
 
     resultSchema = Joi.array().includes(placeSchema).min(1);

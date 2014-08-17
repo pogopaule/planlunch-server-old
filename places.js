@@ -6,17 +6,20 @@ module.exports = [
   {
     name: 'Café Einstein',
     geo: [47.9986877, 7.8396364],
-    website: 'http://www.cafe-einstein.de/wochenkarte/'
+    website: 'http://www.cafe-einstein.de/wochenkarte/',
+    tags: ['lunch-spacials']
   },
   {
     name: 'Curryhaus',
     geo: [47.9995368, 7.8386085],
-    website: 'http://www.curryhaus-freiburg.com/index.php/angebote'
+    website: 'http://www.curryhaus-freiburg.com/index.php/angebote',
+    tags: ['lunch-spacials']
   },
   {
     name: 'Lila Bar',
     geo: [47.9939093, 7.8419898],
-    website: 'http://www.lilabar-freiburg.de/karte/mittagstisch/'
+    website: 'http://www.lilabar-freiburg.de/karte/mittagstisch/',
+    tags: ['lunch-spacials']
   },
   {
     name: 'Amara Schlemmer Stüble',
@@ -26,12 +29,14 @@ module.exports = [
   {
     name: 'Café Huber',
     geo: [47.9973051, 7.839442],
-    website: 'https://www.facebook.com/CafeHuber'
+    website: 'https://www.facebook.com/CafeHuber',
+    tags: ['lunch-spacials']
   },
   {
     name: 'Brasil',
     geo: [47.9982693, 7.8362522],
-    website: 'http://www.brasil-freiburg.de/mittagstisch.php'
+    website: 'http://www.brasil-freiburg.de/mittagstisch.php',
+    tags: ['lunch-spacials']
   },
   {
     name: 'mensadrei',
@@ -51,24 +56,35 @@ module.exports = [
   {
     name: 'Jos Fritz Café',
     geo: [47.9944926, 7.8415117],
-    website: 'http://www.josfritzcafe.de/frame.html'
+    website: 'http://www.josfritzcafe.de/frame.html',
+    tags: ['lunch-spacials']
   },
   {
     name: 'Café Sedan',
-    geo: [47.9950339, 7.8430912]
+    geo: [47.9950339, 7.8430912],
+    tags: ['lunch-spacials']
+  },
+  {
+    name: 'Kölner Botschaft',
+    geo: [47.9956, 7.838967],
+    website: 'http://www.koelnerbotschaft.de/kulinarisch.html',
+    tags: ['lunch-spacials']
   },
   {
     name: 'Inxmail Küche',
-    geo: [47.9956715, 7.8386571]
+    geo: [47.995539, 7.838669],
+    tags: ['inxmail']
   },
   {
     name: 'Der Geier',
     geo: [47.9940068, 7.8412263],
-    website: 'http://www.bodega-dergeier.de/was-gibts-zu-essen/'
+    website: 'http://www.bodega-dergeier.de/was-gibts-zu-essen/',
+    tags: ['lunch-spacials']
   },
   {
     name: 'Inxmail Dachterrase',
-    geo: [47.99518, 7.83837]
+    geo: [47.99518, 7.83837],
+    tags: ['inxmail']
   },
   {
     name: 'Mai Sushi',
@@ -82,22 +98,26 @@ module.exports = [
   },
   {
     name: 'Stühlingerpark',
-    geo: [47.99666, 7.83839]
+    geo: [47.99666, 7.83839],
+    tags: ['park']
   },
   {
     name: 'Kartoffelhaus',
     geo: [47.9880838, 7.8463505],
-    website: 'http://www.daskartoffelhaus.de/fileadmin/user_upload/Speisekarten/Das_Kartoffelhaus_Mittagstisch.pdf'
+    website: 'http://www.daskartoffelhaus.de/fileadmin/user_upload/Speisekarten/Das_Kartoffelhaus_Mittagstisch.pdf',
+    tags: ['lunch-spacials']
   },
   {
     name: 'la Centrale',
     geo: [47.9937667, 7.8336526],
-    website: 'http://www.centrale-ewerk.de/index.php/bistro'
+    website: 'http://www.centrale-ewerk.de/index.php/bistro',
+    tags: ['lunch-spacials']
   },
   {
     name: 'Corosol',
     geo: [47.9947838, 7.8346218],
-    website: 'https://de-de.facebook.com/cafecorosol'
+    website: 'https://de-de.facebook.com/cafecorosol',
+    tags: ['lunch-spacials']
   },
   {
     name: 'Pizzaria Ochsebrugg',
@@ -108,11 +128,6 @@ module.exports = [
     name: 'Café Pow',
     geo: [47.9941271, 7.8398273],
     website: 'https://www.facebook.com/cafepow'
-  },
-  {
-    name: 'Kölner Botschaft',
-    geo: [47.9956715, 7.8386571],
-    website: 'http://www.koelnerbotschaft.de/kulinarisch.html'
   },
   {
     name: 'der freiBurger',
