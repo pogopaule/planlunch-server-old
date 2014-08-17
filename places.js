@@ -138,5 +138,11 @@ module.exports = [
     name: 'Burger Charlet',
     geo: [47.99473, 7.84799],
     website: 'https://www.facebook.com/pages/Burger-Chalet/235179289994518'
+  },
+  {
+    name: 'Paradies',
+    geo: [48.00304, 7.8417],
+    website: 'http://www.paradies-freiburg.de/files/wochenkarte.pdf',
+    tags: ['lunch-specials']
   }
 ];
