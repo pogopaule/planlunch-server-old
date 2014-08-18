@@ -144,5 +144,10 @@ module.exports = [
     geo: [48.00304, 7.8417],
     website: 'http://www.paradies-freiburg.de/files/wochenkarte.pdf',
     tags: ['lunch-specials']
+  },
+  {
+    name: 'Cappadocia',
+    geo: [47.9968252, 7.8352471]
   }
+
 ];
