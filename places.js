@@ -148,6 +148,22 @@ module.exports = [
   {
     name: 'Cappadocia',
     geo: [47.9968252, 7.8352471]
+  },
+  {
+    name: 'Theaterkantine',
+    geo: [47.99534, 7.84528],
+    website: 'http://www.batista-schmidt.com/theater-freiburg/theaterkantine/',
+    tags: ['lunch-specials']
+  },
+  {
+    name: 'DB Kantine',
+    geo: [47.99767, 7.8401],
+    tags: ['lunch-specials']
+  },
+  {
+    name: 'Haus zur lieben Hand',
+    geo: [47.99393, 7.84773],
+    website: 'http://www.swfr.de/essen-trinken/speiseplaene/haus-zur-lieben-hand/',
+    tags: ['lunch-specials']
   }
-
 ];
