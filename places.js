@@ -165,5 +165,11 @@ module.exports = [
     geo: [47.99393, 7.84773],
     website: 'http://www.swfr.de/essen-trinken/speiseplaene/haus-zur-lieben-hand/',
     tags: ['lunch-specials']
+  },
+  {
+    name: 'Karma',
+    geo: [47.99614, 7.84411],
+    website: 'http://www.karma-freiburg.de/uploads/wochenkarte.pdf',
+    tags: ['lunch-specials']
   }
 ];
