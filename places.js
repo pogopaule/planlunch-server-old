@@ -24,7 +24,7 @@ module.exports = [{
   name: 'Amara Schlemmer Stüble',
   geo: [47.9968696, 7.8351075],
   website: 'https://de-de.facebook.com/pages/Amara-Schlemmer-St%C3%BCble/363697680397151',
-  distance: 525
+  distance: 275
 }, {
   name: 'Café Huber',
   geo: [47.9973051, 7.839442],
