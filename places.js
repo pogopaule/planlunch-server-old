@@ -73,7 +73,7 @@ module.exports = [{
   name: 'Inxmail Küche',
   geo: [47.995539, 7.838669],
   tags: ['inxmail'],
-  distance: 14
+  distance: 0
 }, {
   name: 'Der Geier',
   geo: [47.9940068, 7.8412263],
