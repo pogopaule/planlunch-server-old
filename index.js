@@ -27,7 +27,7 @@ server.initPlaces = function() {
   });
 }
 
-var bannedUserNames = ['sex', 'tits', 'ass', 'porn', 'fuck', 'poo', 'pee', 'dong', 'fick'],
+var bannedUserNames = ['sex', 'tits', 'ass', 'porn', 'fuck', 'poo', 'pee', 'dong', 'fick', 'gay'],
     userSchema = Joi.string().regex(/^[a-z]{3,4}$/).invalid(bannedUserNames).required();
 
 server.route({
