@@ -7,7 +7,7 @@ module.exports = [{
   geo: [47.9986877, 7.8396364],
   website: 'http://www.cafe-einstein.de/wochenkarte/',
   tags: ['lunch-spacials'],
-  distance: 582
+  distance: 400
 }, {
   name: 'Curryhaus',
   geo: [47.9995368, 7.8386085],
@@ -51,7 +51,7 @@ module.exports = [{
   name: 'Leaf Thaiküche',
   geo: [47.9975493, 7.8445847],
   website: 'http://www.leafthaiküche.de/mittagstisch.php',
-  distance: 689
+  distance: 750
 }, {
   name: 'Jos Fritz Café',
   geo: [47.9944926, 7.8415117],
@@ -89,12 +89,12 @@ module.exports = [{
   name: 'Mai Sushi',
   geo: [47.9959956, 7.8440229],
   website: 'http://www.maisushi.de/speisekarte-freiburg.php',
-  distance: 700
+  distance: 600
 }, {
   name: 'Mai Wok',
   geo: [47.9960166, 7.8439047],
   website: 'http://www.maiwok-freiburg.de/Home/uploads/Ger_Menu_MW.pdf',
-  distance: 728
+  distance: 600
 }, {
   name: 'Stühlingerpark',
   geo: [47.99666, 7.83839],
@@ -153,7 +153,7 @@ module.exports = [{
   geo: [47.99534, 7.84528],
   website: 'http://www.batista-schmidt.com/theater-freiburg/theaterkantine/',
   tags: ['lunch-specials'],
-  distance: 810
+  distance: 670
 }, {
   name: 'DB Kantine',
   geo: [47.99767, 7.8401],
@@ -170,5 +170,5 @@ module.exports = [{
   geo: [47.99614, 7.84411],
   website: 'http://www.karma-freiburg.de/uploads/wochenkarte.pdf',
   tags: ['lunch-specials'],
-  distance: 728
+  distance: 620
 }]
