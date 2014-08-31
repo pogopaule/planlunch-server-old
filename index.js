@@ -1,21 +1,14 @@
 var Hapi = require('hapi'),
     _ = require('underscore'),
-    Joi = require('joi'),
-    CronJob = require('cron').CronJob;
+    Joi = require('joi');
+
+require('./cronjobs.js');
 
 Object.prototype.findTimeSlot = function(time) {
   return _.find(this.time_slots, function(timeSlot) {
      return timeSlot.time === time;
   });
 }
-
-new CronJob('0 0 14 * * 1-5', function(){
-  server.initPlaces();
-}, null, true, 'Europe/Berlin');
-
-
-
-
 
 var port = process.env.PORT || 8080,
     server = new Hapi.Server(port, {cors: true});
