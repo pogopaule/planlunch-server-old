@@ -144,7 +144,7 @@ lab.experiment('Places endpoint', function() {
 
 lab.experiment('invalid payloads', function() {
 
-  var invalidUserNames = ['TooLong', 'ab', 'sex', 'tits'];
+  var invalidUserNames = ['TooLong', 'ab'];
 
   _.each(invalidUserNames, function(name) {
     lab.test('reject POST requests with invalid user name "' + name + '"', function(done) {
