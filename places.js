@@ -171,4 +171,23 @@ module.exports = [{
   website: 'http://www.karma-freiburg.de/uploads/wochenkarte.pdf',
   tags: ['lunch-specials'],
   distance: 620
+},
+{
+  name: 'Lalemey',
+  geo: [48.000030, 7.848913],
+  website: 'https://de-de.facebook.com/pages/Lalemey/225499210865505',
+  tags: ['lunch-spacials'],
+  distance: 1200
+},
+{
+  name: 'Subway',
+  geo: [47.999120, 7.843068],
+  website: 'http://www.subway-sandwiches.de/produkte.html',
+  distance: 650
+},
+{
+  name: 'McDonald\'s',
+  geo: [47.998174, 7.842446],
+  website: 'http://www.mcdonalds.de/produkte/alle-produkte',
+  distance: 600
 }]
