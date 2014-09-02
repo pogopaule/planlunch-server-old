@@ -134,7 +134,7 @@ module.exports = [{
   website: 'http://www.derfreiburger.de/essenundtrinken.html',
   distance: 1179
 }, {
-  name: 'Burger Charlet',
+  name: 'Burger Chalet',
   geo: [47.99473, 7.84799],
   website: 'https://www.facebook.com/pages/Burger-Chalet/235179289994518',
   distance: 986
