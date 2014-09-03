@@ -150,7 +150,7 @@ module.exports = [{
   distance: 268
 }, {
   name: 'Theaterkantine',
-  geo: [47.99534, 7.84528],
+  geo: [47.995591, 7.844514],
   website: 'http://www.batista-schmidt.com/theater-freiburg/theaterkantine/',
   tags: ['lunch-specials'],
   distance: 670
@@ -190,4 +190,19 @@ module.exports = [{
   geo: [47.998174, 7.842446],
   website: 'http://www.mcdonalds.de/produkte/alle-produkte',
   distance: 600
-}]
+},
+{
+  name: 'Theatercafé',
+  geo: [47.995547, 7.844512],
+  website: 'http://www.quadrille-freiburg.de/',
+  tags: ['lunch-specials'],
+  distance: 670
+},
+{
+  name: 'Caféhaus',
+  geo: [47.992099, 7.848316],
+  website: 'http://www.cafehaus-freiburg.de/fileadmin/medien/medien/pdf/Tageskarte.pdf',
+  tags: ['lunch-specials'],
+  distance: 1000
+}
+]
