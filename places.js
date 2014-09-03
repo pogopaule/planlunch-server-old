@@ -204,5 +204,18 @@ module.exports = [{
   website: 'http://www.cafehaus-freiburg.de/fileadmin/medien/medien/pdf/Tageskarte.pdf',
   tags: ['lunch-specials'],
   distance: 1000
+},
+{
+  name: 'Sushibar',
+  geo: [47.994059, 7.850144],
+  website: 'http://sushibar-freiburg.de/speisekarte/',
+  distance: 1100
+},
+{
+  name: 'Karma Indian Palace',
+  geo: [47.995928, 7.844159],
+  website: 'http://www.karma-indian-palace.de/80/indische-kueche/speisekarte',
+  tags: ['lunch-specials'],
+  distance: 630
 }
 ]
