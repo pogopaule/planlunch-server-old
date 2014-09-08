@@ -217,5 +217,19 @@ module.exports = [{
   website: 'http://www.karma-indian-palace.de/80/indische-kueche/speisekarte',
   tags: ['lunch-specials'],
   distance: 630
+},
+{
+  name: 'mm! leckerbar',
+  geo: [47.995687, 7.844213],
+  website: 'http://www.mm-leckerbar.com/essen/',
+  tags: ['new'],
+  distance: 640
+},
+{
+  name: 'freundsaft',
+  geo: [47.999906, 7.841124],
+  website: 'http://freundsaft.com',
+  tags: ['new'],
+  distance: 600
 }
 ]
