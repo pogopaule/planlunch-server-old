@@ -1,32 +1,22 @@
 var Hapi = require('hapi'),
     _ = require('underscore'),
-    Joi = require('joi');
+    Joi = require('joi'),
+    Place = require('./place.js');
 
 require('./cronjobs.js');
 
-Object.prototype.findTimeSlot = function(time) {
-  return _.find(this.time_slots, function(timeSlot) {
-     return timeSlot.time === time;
-  });
-}
 
 var port = process.env.PORT || 8080,
-    server = new Hapi.Server(port, {cors: true});
+    server = new Hapi.Server(port, {cors: true}),
+    places = createPlaces(),
+    userSchema = Joi.string().regex(/^[a-z]{3,4}$/).required();
 
-server.places = require('./places.js');
-server.initPlaces = function() {
-  _.each(server.places, function(place) {
-    delete place.time_slots;
-  });
-}
-
-var userSchema = Joi.string().regex(/^[a-z]{3,4}$/).required();
 
 server.route({
   method: 'GET',
   path: '/places',
   handler: function(request, reply) {
-    reply(server.places);
+    reply(places);
   }
 });
 
@@ -70,6 +60,7 @@ server.route({
   }
 });
 
+
 if(!isTest()) {
   server.start(function() {
     console.log('server started', server.info.uri);
@@ -77,46 +68,32 @@ if(!isTest()) {
 }
 
 
-
-
-
-
 function isTest() {
   return module.parent;
 }
 
 function removeUserFromPlaces(user) {
-  _.each(server.places, function(place) {
-    if(place.hasOwnProperty('time_slots')) {
-      _.each(place.time_slots, function(timeSlot, index, timeSlots) {
-        timeSlot.users = _.without(timeSlot.users, user);
-        if(timeSlot.users.length == 0) {
-          timeSlots.splice(index, 1);
-        }
-      });
-    }
+  _.each(places, function(place) {
+    place.removeUser(user);
   });
 }
 
 function addUserToPlace(user, time, placeName) {
-  var place = _.find(server.places, function(place) {
+  var place = _.find(places, function(place) {
     return place.name === placeName
   });
 
-  if(!place.time_slots) {
-    place.time_slots = [];
-  }
+  place.addUser(user, time);
+}
 
-  if(!place.findTimeSlot(time)) {
-    place.time_slots.push({time: time, users: []});
-  }
-
-  place.time_slots = _.sortBy(place.time_slots, function(timeSlot) {
-    return timeSlot.time;
-  })
-
-  place.findTimeSlot(time).users.push(user);
+function createPlaces() {
+  return _.map(require('./places'), function(place) {
+    return new Place(place.name, place.geo, place.website, place.tags, place.distance);
+  });
 }
 
 
-module.exports = server;
+module.exports = {
+  server: server,
+  places: places
+};

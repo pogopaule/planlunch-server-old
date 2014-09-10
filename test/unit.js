@@ -2,20 +2,10 @@ var Lab = require('lab'),
     Joi = require('joi'),
     _ = require('underscore'),
     lab = exports.lab = Lab.script(),
-    server = require('../index.js'),
-    places = server.places;
+    indexjs = require('../index.js'),
+    server = indexjs.server,
+    places = indexjs.places;
 
-
-lab.experiment('Cron job', function() {
-  lab.test('initPlaces should remove all time_slots', function(done) {
-    server.places[0].time_slots = [{ time: '12:15', users: ['max', 'Moritz']}];
-
-    server.initPlaces();
-
-    Lab.expect(server.places[0].hasOwnProperty('time_slots')).to.equal(false)
-    done();
-  });
-});
 
 lab.experiment('Places endpoint', function() {
 
@@ -41,7 +31,7 @@ lab.experiment('Places endpoint', function() {
       url: '/places'
     };
 
-    server.places[0].time_slots = [{ time: '12:15', users: ['max', 'Moritz']}];
+    places[0].time_slots = [{ time: '12:15', users: ['max', 'Moritz']}];
 
 
     server.inject(options, function(response) {
