@@ -8,7 +8,9 @@ var Hapi = require('hapi'),
 var port = process.env.PORT || 8080,
     server = new Hapi.Server(port, {cors: true}),
     places = createPlaces(),
-    userSchema = Joi.string().regex(/^[a-z]{3,4}$/).required();
+
+    userSchema = Joi.string().regex(/^[a-z]{3,4}$/).required(),
+    timeSlotSchema = Joi.valid('11:30', '11:45', '12:00', '12:15', '12:30', '12:45', '13:00').required();
 
 
 server.route({
@@ -45,7 +47,7 @@ server.route({
     validate: {
       payload: Joi.object().keys({
         user: userSchema,
-        time_slot: Joi.valid('11:30', '11:45', '12:00', '12:15', '12:30', '12:45', '13:00').required()
+        time_slot: timeSlotSchema
       })
     }
   },
