@@ -1,6 +1,8 @@
 var CronJob = require('cron').CronJob;
 
-new CronJob('0 0 14 * * 1-5', function(){
-  server.initPlaces();
-}, null, true, 'Europe/Berlin');
+module.exports = function(job) {
+  return new CronJob('* * * * * 1-5', function(){
+    job();
+  }, null, true, 'Europe/Berlin');
+}
 

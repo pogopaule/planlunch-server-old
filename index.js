@@ -1,9 +1,8 @@
 var Hapi = require('hapi'),
     _ = require('underscore'),
     Joi = require('joi'),
-    Place = require('./place.js');
-
-require('./cronjobs.js');
+    Place = require('./place.js'),
+    cron = require('./cronjobs.js');
 
 
 var port = process.env.PORT || 8080,
@@ -63,6 +62,9 @@ server.route({
 
 if(!isTest()) {
   server.start(function() {
+    cron(function() {
+      places = createPlaces();
+    });
     console.log('server started', server.info.uri);
   });
 }
