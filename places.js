@@ -6,20 +6,40 @@ module.exports = [{
   name: 'Café Einstein',
   geo: [47.9986877, 7.8396364],
   website: 'http://www.cafe-einstein.de/wochenkarte/',
-  tags: ['lunch-spacials'],
-  distance: 400
+  tags: ['lunch-specials'],
+  distance: 400,
+  webshot: {
+    shotSize: {
+      width: 450,
+      height: 525
+    },
+    shotOffset: {
+      left: 280,
+      top: 350
+    }
+  }
 }, {
   name: 'Curryhaus',
   geo: [47.9995368, 7.8386085],
   website: 'http://www.curryhaus-freiburg.com/index.php/angebote',
-  tags: ['lunch-spacials'],
+  tags: ['lunch-specials'],
   distance: 521
 }, {
   name: 'Lila Bar',
   geo: [47.9939093, 7.8419898],
   website: 'http://www.lilabar-freiburg.de/karte/mittagstisch/',
-  tags: ['lunch-spacials'],
-  distance: 504
+  tags: ['lunch-specials'],
+  distance: 504,
+  webshot: {
+    shotSize: {
+      width: 560,
+      height: 520
+    },
+    shotOffset: {
+      left: 185,
+      top: 390
+    }
+  }
 }, {
   name: 'Amara Schlemmer Stüble',
   geo: [47.9968696, 7.8351075],
@@ -29,14 +49,24 @@ module.exports = [{
   name: 'Café Huber',
   geo: [47.9973051, 7.839442],
   website: 'https://www.facebook.com/CafeHuber',
-  tags: ['lunch-spacials'],
+  tags: ['lunch-specials'],
   distance: 194
 }, {
   name: 'Brasil',
   geo: [47.9982693, 7.8362522],
   website: 'http://www.brasil-freiburg.de/mittagstisch.php',
-  tags: ['lunch-spacials'],
-  distance: 380
+  tags: ['lunch-specials'],
+  distance: 380,
+  webshot: {
+    shotSize: {
+      width: 370,
+      height: 750
+    },
+    shotOffset: {
+      left: 390,
+      top: 530
+    }
+  }
 }, {
   name: 'mensadrei',
   geo: [47.994701, 7.848078],
@@ -56,18 +86,18 @@ module.exports = [{
   name: 'Jos Fritz Café',
   geo: [47.9944926, 7.8415117],
   website: 'http://www.josfritzcafe.de/frame.html',
-  tags: ['lunch-spacials'],
+  tags: ['lunch-specials'],
   distance: 436
 }, {
   name: 'Café Sedan',
   geo: [47.9950339, 7.8430912],
-  tags: ['lunch-spacials'],
+  tags: ['lunch-specials'],
   distance: 519
 }, {
   name: 'Kölner Botschaft',
   geo: [47.9956, 7.838967],
   website: 'http://www.koelnerbotschaft.de/kulinarisch.html',
-  tags: ['lunch-spacials'],
+  tags: ['lunch-specials'],
   distance: 2
 }, {
   name: 'Inxmail Küche',
@@ -78,7 +108,7 @@ module.exports = [{
   name: 'Der Geier',
   geo: [47.9940068, 7.8412263],
   website: 'http://www.bodega-dergeier.de/was-gibts-zu-essen/',
-  tags: ['lunch-spacials'],
+  tags: ['lunch-specials'],
   distance: 567
 }, {
   name: 'Inxmail Dachterrase',
@@ -104,19 +134,19 @@ module.exports = [{
   name: 'Kartoffelhaus',
   geo: [47.9880838, 7.8463505],
   website: 'http://www.daskartoffelhaus.de/fileadmin/user_upload/Speisekarten/Das_Kartoffelhaus_Mittagstisch.pdf',
-  tags: ['lunch-spacials'],
+  tags: ['lunch-specials'],
   distance: 1341
 }, {
   name: 'la Centrale',
   geo: [47.9937667, 7.8336526],
   website: 'http://www.centrale-ewerk.de/index.php/bistro',
-  tags: ['lunch-spacials'],
+  tags: ['lunch-specials'],
   distance: 615
 }, {
   name: 'Corosol',
   geo: [47.9947838, 7.8346218],
   website: 'https://de-de.facebook.com/cafecorosol',
-  tags: ['lunch-spacials'],
+  tags: ['lunch-specials'],
   distance: 504
 }, {
   name: 'Pizzaria Ochsebrugg',
@@ -164,7 +194,17 @@ module.exports = [{
   geo: [47.99393, 7.84773],
   website: 'http://www.swfr.de/essen-trinken/speiseplaene/haus-zur-lieben-hand/',
   tags: ['lunch-specials'],
-  distance: 889
+  distance: 889,
+  webshot: {
+    shotSize: {
+      width: 350,
+      height: 1030
+    },
+    shotOffset: {
+      left: 470,
+      top: 270
+    }
+  }
 }, {
   name: 'Karma',
   geo: [47.99614, 7.84411],
@@ -176,7 +216,7 @@ module.exports = [{
   name: 'Lalemey',
   geo: [48.000030, 7.848913],
   website: 'https://de-de.facebook.com/pages/Lalemey/225499210865505',
-  tags: ['lunch-spacials'],
+  tags: ['lunch-specials'],
   distance: 1200
 },
 {
@@ -196,7 +236,8 @@ module.exports = [{
   geo: [47.995547, 7.844512],
   website: 'http://www.quadrille-freiburg.de/',
   tags: ['lunch-specials'],
-  distance: 670
+  distance: 670,
+  webshot: {}
 },
 {
   name: 'Caféhaus',
