@@ -107,7 +107,7 @@ module.exports = [{
 }, {
   name: 'Der Geier',
   geo: [47.9940068, 7.8412263],
-  website: 'http://www.bodega-dergeier.de/was-gibts-zu-essen/',
+  website: 'http://www.bodega-dergeier.de/mittagstisch/',
   tags: ['lunch-specials'],
   distance: 567
 }, {
