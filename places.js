@@ -272,5 +272,12 @@ module.exports = [{
   website: 'http://freundsaft.com',
   tags: ['new'],
   distance: 600
+},
+{
+  name: 'Streat Kitchen (nur Do)',
+  geo: [47.9928028, 7.8325279],
+  website: 'https://www.facebook.com/StrEatFreiburg/info',
+  tags: ['new'],
+  distance: 900
 }
 ]
