@@ -279,5 +279,12 @@ module.exports = [{
   website: 'https://www.facebook.com/StrEatFreiburg/info',
   tags: ['new'],
   distance: 900
+},
+{
+  name: 'Maria Bar',
+  geo: [47.9940886, 7.8481495],
+  website: 'http://www.maria-bar.de/karten',
+  tags: ['new'],
+  distance: 900
 }
 ]
