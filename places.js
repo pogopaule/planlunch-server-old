@@ -5,7 +5,7 @@ module.exports = [{
 }, {
   name: 'Café Einstein',
   geo: [47.9986877, 7.8396364],
-  website: 'http://www.cafe-einstein.de/wochenkarte/',
+  website: 'http://www.cafe-einstein.de/mittagstisch/',
   tags: ['lunch-specials'],
   distance: 400,
   webshot: {
