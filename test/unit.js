@@ -1,5 +1,6 @@
 var Lab = require('lab'),
     Joi = require('joi'),
+    Code = require('code'),
     _ = require('underscore'),
     lab = exports.lab = Lab.script(),
     indexjs = require('../index.js'),
@@ -37,7 +38,7 @@ lab.experiment('Places endpoint', function() {
     server.inject(options, function(response) {
       var result = response.result;
 
-      Lab.expect(response.statusCode).to.equal(200);
+      Code.expect(response.statusCode).to.equal(200);
       Joi.assert(result, resultSchema);
 
       done();
@@ -52,8 +53,8 @@ lab.experiment('Places endpoint', function() {
     };
 
     server.inject(options, function(response) {
-      Lab.expect(response.statusCode).to.equal(200);
-      Lab.expect(places[1].findTimeSlot('12:15').users).to.contain('max');
+      Code.expect(response.statusCode).to.equal(200);
+      Code.expect(places[1].findTimeSlot('12:15').users).to.contain('max');
 
       done();
     });
@@ -79,9 +80,9 @@ lab.experiment('Places endpoint', function() {
           })
         }
       });
-      Lab.expect(response.statusCode).to.equal(200);
-      Lab.expect(places[1].findTimeSlot('12:45').users).to.contain('max');
-      Lab.expect(timesmaxIsPresent).to.equal(1);
+      Code.expect(response.statusCode).to.equal(200);
+      Code.expect(places[1].findTimeSlot('12:45').users).to.contain('max');
+      Code.expect(timesmaxIsPresent).to.equal(1);
 
       done();
     });
@@ -95,7 +96,7 @@ lab.experiment('Places endpoint', function() {
     };
 
     server.inject(nonStringUser, function(response) {
-      Lab.expect(response.statusCode).to.equal(400);
+      Code.expect(response.statusCode).to.equal(400);
 
       done()
     });
@@ -111,7 +112,7 @@ lab.experiment('Places endpoint', function() {
     places[7].time_slots = [{time: '11:45', users: ['max']}];
 
     server.inject(options, function(response) {
-      Lab.expect(places[7].findTimeSlot('11:45')).to.equal(undefined);
+      Code.expect(places[7].findTimeSlot('11:45')).to.equal(undefined);
 
       done();
     });
@@ -125,7 +126,7 @@ lab.experiment('Places endpoint', function() {
     };
 
     server.inject(invalidPayload, function(response) {
-      Lab.expect(response.statusCode).to.equal(400);
+      Code.expect(response.statusCode).to.equal(400);
 
       done();
     });
@@ -144,7 +145,7 @@ lab.experiment('invalid payloads', function() {
         payload: {user: name, action: 'withdraw'}
       };
       server.inject(request, function(response) {
-        Lab.expect(response.statusCode).to.equal(400);
+        Code.expect(response.statusCode).to.equal(400);
         done();
       });
     });

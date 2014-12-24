@@ -12,7 +12,8 @@
     "time": "~0.11.0"
   },
   "devDependencies": {
-    "lab": "~4.0.1"
+    "code": "^1.2.1",
+    "lab": "~5.1.1"
   },
   "main": "index.js",
   "scripts": {
